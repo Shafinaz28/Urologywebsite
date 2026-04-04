@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fadnis Urology Clinic</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0A4F92",
+                        secondary: "#0F6FCB",
+                        accent: "#FF7A1A",
+                        accentDark: "#E45F08",
+                        textDark: "#18324A",
+                        muted: "#647789",
+                        lightBg: "#F7FBFF",
+                        borderSoft: "#DCE8F4"
+                    },
+                    fontFamily: {
+                        manrope: ["Manrope", "sans-serif"]
+                    },
+                    boxShadow: {
+                        soft: "0 12px 30px rgba(15,111,203,0.08)",
+                        card: "0 18px 40px rgba(15,111,203,0.12)"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-36px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(36px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.96);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .arrow-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 210px;
+            height: 58px;
+            padding: 0 34px 0 26px;
+            font-weight: 800;
+            font-size: 15px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a1a46 0%, #0d2d7a 42%, #081739 100%);
+            border: 3px solid #f2a93b;
+            clip-path: polygon(0 0, 82% 0, 100% 50%, 82% 100%, 0 100%, 0 0);
+            box-shadow: 0 12px 24px rgba(4, 15, 45, 0.28);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .arrow-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02) 45%, rgba(255, 255, 255, 0) 60%);
+            pointer-events: none;
+        }
+
+        .arrow-btn::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 46px;
+            height: 3px;
+            background: #f7dc6f;
+            box-shadow: 0 0 12px rgba(247, 220, 111, 0.75);
+        }
+
+        .arrow-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(4, 15, 45, 0.35);
+            filter: brightness(1.04);
+        }
+
+        .arrow-btn.secondary {
+            color: #0b2f75;
+            background: linear-gradient(135deg, #ffffff 0%, #eef6ff 55%, #dbeafe 100%);
+            border-color: #f2a93b;
+        }
+
+        .arrow-btn.secondary::before {
+            background: linear-gradient(135deg, rgba(14, 111, 203, 0.16), rgba(255, 255, 255, 0.18) 40%, rgba(255, 255, 255, 0) 65%);
+        }
+
+        .arrow-btn.secondary::after {
+            background: #0f6fcb;
+            box-shadow: 0 0 10px rgba(15, 111, 203, 0.45);
+        }
+
+        @media (max-width: 640px) {
+            .arrow-btn {
+                min-width: 180px;
+                height: 52px;
+                font-size: 13px;
+                padding: 0 26px 0 18px;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-manrope bg-lightBg text-textDark">
+
+ <!-- TOPBAR -->
+  <div class="hidden md:block bg-gradient-to-r from-primary to-secondary text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="font-medium text-center sm:text-left">
+        Expert Urology, Andrology, Laparoscopic & Renal Transplant Care in Raichur
+      </p>
+      <a href="tel:+919353057005" class="font-bold hover:text-orange-100 transition">
+        Appointments: +91 93530 57005
+      </a>
+    </div>
+  </div>
+
+ <!-- NAVBAR -->
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-borderSoft shadow-sm">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <div class="flex items-center justify-between py-3">
+
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="image/logo1.png" alt="Fadnis Urology Clinic Logo"
+          class="w-20 h-20 object-contain">    
+      </a>
+
+      <!-- DESKTOP MENU -->
+      <ul class="hidden lg:flex items-center gap-8 font-semibold text-sm text-deepNavy">
+        <li>
+          <a href="index.html" class="hover:text-secondary transition">Home</a>
+        </li>
+        <li>
+          <a href="about.html" class="hover:text-secondary transition">About</a>
+        </li>
+        <li>
+          <a href="specialties.html" class="hover:text-secondary transition">Specialties</a>
+        </li>
+        <li>
+          <a href="contact.html" class="hover:text-secondary transition">Contact</a>
+        </li>
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <div class="flex items-center gap-3">
+
+        <!-- BUTTON -->
+        <a href="contact.html"
+          class="hidden md:flex items-center justify-center px-5 h-[45px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition duration-300">
+          Book Appointment
+        </a>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button id="menuBtn"
+          class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-borderSoft text-primary hover:bg-blue-50 transition">
+          
+          <!-- OPEN ICON -->
+          <svg id="menuOpenIcon" xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 block" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+          <!-- CLOSE ICON -->
+          <svg id="menuCloseIcon" xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="lg:hidden hidden pb-4">
+      <div class="rounded-2xl border border-borderSoft bg-white shadow-soft p-4 space-y-3">
+
+        <a href="index.html" class="block font-semibold text-sm hover:text-secondary">Home</a>
+        <a href="about.html" class="block font-semibold text-sm hover:text-secondary">About</a>
+        <a href="specialties.html" class="block font-semibold text-sm hover:text-secondary">Specialties</a>
+        <a href="contact.html" class="block font-semibold text-sm hover:text-secondary">Contact</a>
+
+        <div class="pt-2">
+          <a href="contact.html"
+            class="flex items-center justify-center w-full h-[50px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition">
+            Book Appointment
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+    <!-- SPECIALTIES -->
+    <section class="bg-gradient-to-br from-primary to-secondary text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="reveal">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+                    Specialties
+                </h1>
+
+                <p class="text-white/90 text-lg leading-7 mb-8">
+                    Delivering advanced urology, andrology, and laparoscopic care with precision, compassion, and modern
+                    technology in Raichur.
+                </p>
+            </div>
+        </div>
+    </section>
+
+  <!-- SPECIALTIES -->
+  <section id="specialties" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <p class="text-[11px] font-bold uppercase tracking-[2px] text-accent mb-3">Our Specialties</p>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-deepNavy mb-3">
+          Comprehensive urology care under one roof
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base leading-7">
+          Advanced care across urology, reconstructive procedures, pediatric care, infertility,
+          oncology, diagnostic cystoscopy, and general surgical support.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+
+        <!-- 1 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80"
+              alt="Kidney Stone Care"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Kidney Stone Care
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Advanced evaluation and treatment for stones using modern endoscopic and surgical approaches.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• URSL</li>
+              <li>• PCNL</li>
+              <li>• RIRS</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80"
+              alt="Prostate & Bladder Care"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Prostate &amp; Bladder Care
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Structured management for urinary flow issues, bladder concerns and prostate-related symptoms.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• TURP</li>
+              <li>• TUIP / BNI</li>
+              <li>• Diagnostic cystoscopy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80"
+              alt="Reconstructive Urology"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Reconstructive Urology
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Corrective treatment planning for complex uro-surgical and reconstructive conditions.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Urethroplasty</li>
+              <li>• Hypospadias repair</li>
+              <li>• Fistula repair</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
+              alt="Stricture Urethra"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Stricture Urethra
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Effective treatment for urethral narrowing with endoscopic and reconstructive solutions.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• VIU</li>
+              <li>• Buccal mucosal graft urethroplasty</li>
+              <li>• Anastomotic urethroplasty</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80"
+              alt="Female Urology"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Female Urology
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Care for urinary incontinence, prolapse support, bladder symptoms and recurrent urinary issues.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Stress urinary incontinence</li>
+              <li>• TOT / TVT repair</li>
+              <li>• Overactive bladder care</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80"
+              alt="Pediatric Urology"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Pediatric Urology
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Focused care for congenital and childhood urological issues with careful parent guidance.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• PUJO</li>
+              <li>• VUR</li>
+              <li>• PUV</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=1200&q=80"
+              alt="Laparoscopic Surgery"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Laparoscopic Surgery
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Modern minimally invasive procedures planned for faster recovery and better precision.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Laparoscopic nephrectomy</li>
+              <li>• Laparoscopic pyeloplasty</li>
+              <li>• Advanced minimally invasive procedures</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
+              alt="Infertility Care"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Infertility Care
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Personalized evaluation and support for male and female infertility concerns.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Male infertility evaluation</li>
+              <li>• Female infertility support</li>
+              <li>• Andrology-focused consultation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80"
+              alt="Uro-Oncology" class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Uro-Oncology
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Evidence-based support for kidney, bladder, penile and testicular oncology-related concerns.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Kidney cancer</li>
+              <li>• Urinary bladder cancer</li>
+              <li>• Penile & testicular cancer</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=1200&q=80"
+              alt="General Surgery"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              General Surgery
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Essential general surgical support with safe planning and patient-centered care.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Hydrocele surgery</li>
+              <li>• Appendicectomy</li>
+              <li>• Hernia repair</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="rounded-[18px] overflow-hidden bg-softBlue border border-borderSoft shadow-sm">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
+              alt="Diagnostic Cystoscopy"
+              class="w-full h-40 md:h-48 object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <h3 class="absolute bottom-3 left-3 text-white text-sm md:text-lg font-bold">
+              Diagnostic Cystoscopy
+            </h3>
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-muted leading-5 mb-2">
+              Detailed bladder and urethral examination for early diagnosis of urological conditions.
+            </p>
+            <ul class="text-xs text-slate-600 space-y-0.5">
+              <li>• Bladder examination</li>
+              <li>• Urethral evaluation</li>
+              <li>• Early diagnosis support</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+
+      <div class="rounded-[32px] bg-white/10 border border-white/20 px-8 py-10 md:px-12 md:py-12 backdrop-blur">
+
+        <!-- TEXT -->
+        <p class="text-sm uppercase tracking-[2px] font-bold text-blue-100 mb-3">
+          Fast Consultation Support
+        </p>
+
+        <h2 class="text-2xl md:text-4xl font-extrabold leading-tight mb-4">
+          Need timely urology consultation?
+        </h2>
+
+        <p class="text-white/90 text-sm md:text-lg leading-7 mb-8">
+          Get in touch for consultation support, treatment guidance and appointment assistance.
+        </p>
+
+        <!-- BUTTONS BELOW -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+
+          <a href="tel:+919353057005"
+            class="px-7 h-[52px] flex items-center justify-center bg-white text-primary font-bold rounded-xl hover:bg-blue-50 transition">
+            Call Now
+          </a>
+
+          <a href="#contact"
+            class="px-7 h-[52px] flex items-center justify-center border border-white/40 text-white font-bold rounded-xl hover:bg-white/10 transition">
+            Book Appointment
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gradient-to-br from-primary to-secondary text-white pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
+
+            <div class="reveal">
+                <img src="image/logo1.png" alt="Clinic Logo" class="w-16 mb-4">
+                <h3 class="font-extrabold text-lg mb-2">Fadnis Urology Clinic</h3>
+                <p class="text-sm text-white/90 leading-6">
+                    Advanced urology, andrology and laparoscopic care in Raichur with a focus on precision, safety and
+                    patient comfort.
+                </p>
+            </div>
+
+            <div class="reveal">
+                <h4 class="font-extrabold mb-4 text-lg">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-white/90">
+                    <li><a href="#home" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#specialties" class="hover:text-white transition">Specialties</a></li>
+                    <li><a href="#why-us" class="hover:text-white transition">Why Choose Us</a></li>
+                    <li><a href="#consultation" class="hover:text-white transition">Consultation</a></li>
+                </ul>
+            </div>
+
+          <div>
+          <h4 class="font-bold text-lg mb-4">Contact</h4>
+
+          <ul class="space-y-3 text-sm text-blue-100">
+
+            <!-- LOCATION -->
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243A8 8 0 1117.657 16.657z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Raichur, Karnataka
+            </li>
+
+            <!-- PHONE -->
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.065a2 2 0 01-.45 1.882l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.882-.45l2.065.516A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+919353057005" class="hover:text-white">+91 93530 57005</a>
+            </li>
+
+            <!-- EMAIL -->
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0l-8-4m8 4l-8 4" />
+              </svg>
+              <a href="mailto:info@example.com" class="hover:text-white">info@example.com</a>
+            </li>
+
+            <!-- TIME -->
+            <li class="flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Mon - Sat | 9:00 AM - 7:00 PM
+            </li>
+
+          </ul>
+        </div>
+
+            <div class="reveal">
+                <h4 class="font-extrabold mb-4 text-lg">Contact Info</h4>
+                <div class="space-y-3 text-sm text-white/90">
+                    <p><span class="font-bold">Phone:</span> <a href="tel:+919353057005"
+                            class="hover:text-white transition">+91 93530 57005</a></p>
+                    <p><span class="font-bold">Location:</span> Beside Suraksha Hospital, Paras Garden, Raichur</p>
+                    <p><span class="font-bold">Doctor:</span> Dr. Akshay Fadnis</p>
+                    <p><span class="font-bold">KMC Registration:</span> 118255</p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="border-t border-white/20 mt-10 pt-6 text-center text-sm text-white/80">
+            © 2026 Fadnis Urology Clinic. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const openIcon = document.getElementById("menuOpenIcon");
+        const closeIcon = document.getElementById("menuCloseIcon");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale").forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
