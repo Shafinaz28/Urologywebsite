@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fadnis Urology Clinic</title>
+  <title>About | Fadnis Urology Clinic</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +19,9 @@
             accentDark: "#E45F08",
             textDark: "#18324A",
             muted: "#647789",
-            lightBg: "#F7FBFF",
+            lightBg: "#EEF6FF",
+            softBlue: "#DDEEFF",
+            paleSky: "#F4F9FF",
             borderSoft: "#DCE8F4"
           },
           fontFamily: {
@@ -41,6 +43,7 @@
 
     body {
       font-family: 'Manrope', sans-serif;
+      background: linear-gradient(180deg, #f3f9ff 0%, #eef6ff 40%, #ffffff 100%);
     }
 
     .reveal {
@@ -133,19 +136,35 @@
       filter: brightness(1.04);
     }
 
-    .arrow-btn.secondary {
-      color: #0b2f75;
-      background: linear-gradient(135deg, #ffffff 0%, #eef6ff 55%, #dbeafe 100%);
-      border-color: #f2a93b;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(220, 232, 244, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 111, 203, 0.08);
     }
 
-    .arrow-btn.secondary::before {
-      background: linear-gradient(135deg, rgba(14,111,203,0.16), rgba(255,255,255,0.18) 40%, rgba(255,255,255,0) 65%);
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #dce8f4;
+      color: #0a4f92;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 20px rgba(15,111,203,0.06);
     }
 
-    .arrow-btn.secondary::after {
-      background: #0f6fcb;
-      box-shadow: 0 0 10px rgba(15,111,203,0.45);
+    .timeline-line::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #0f6fcb 0%, #dce8f4 100%);
     }
 
     @media (max-width: 640px) {
@@ -155,13 +174,17 @@
         font-size: 13px;
         padding: 0 26px 0 18px;
       }
+
+      .timeline-line::before {
+        left: 13px;
+      }
     }
   </style>
 </head>
 
-<body class="font-manrope bg-lightBg text-textDark">
+<body class="font-manrope text-textDark">
 
- <!-- TOPBAR -->
+  <!-- TOPBAR -->
   <div class="hidden md:block bg-gradient-to-r from-primary to-secondary text-white text-sm">
     <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2">
       <p class="font-medium text-center sm:text-left">
@@ -173,291 +196,437 @@
     </div>
   </div>
 
- <!-- NAVBAR -->
-<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-borderSoft shadow-sm">
-  <div class="max-w-7xl mx-auto px-4">
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-borderSoft shadow-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between py-3">
 
-    <div class="flex items-center justify-between py-3">
-
-      <!-- LOGO -->
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="image/logo1.png" alt="Fadnis Urology Clinic Logo"
-          class="w-20 h-20 object-contain">    
-      </a>
-
-      <!-- DESKTOP MENU -->
-      <ul class="hidden lg:flex items-center gap-8 font-semibold text-sm text-deepNavy">
-        <li>
-          <a href="index.html" class="hover:text-secondary transition">Home</a>
-        </li>
-        <li>
-          <a href="about.html" class="hover:text-secondary transition">About</a>
-        </li>
-        <li>
-          <a href="specialties.html" class="hover:text-secondary transition">Specialties</a>
-        </li>
-        <li>
-          <a href="contact.html" class="hover:text-secondary transition">Contact</a>
-        </li>
-      </ul>
-
-      <!-- RIGHT SIDE -->
-      <div class="flex items-center gap-3">
-
-        <!-- BUTTON -->
-        <a href="contact.html"
-          class="hidden md:flex items-center justify-center px-5 h-[45px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition duration-300">
-          Book Appointment
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="image/logo1.png" alt="Fadnis Urology Clinic Logo" class="w-20 h-20 object-contain">
         </a>
 
-        <!-- MOBILE MENU BUTTON -->
-        <button id="menuBtn"
-          class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-borderSoft text-primary hover:bg-blue-50 transition">
-          
-          <!-- OPEN ICON -->
-          <svg id="menuOpenIcon" xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 block" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <ul class="hidden lg:flex items-center gap-8 font-semibold text-sm text-deepNavy">
+          <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+          <li><a href="about.html" class="text-secondary">About</a></li>
+          <li><a href="specialties.html" class="hover:text-secondary transition">Specialties</a></li>
+          <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+        </ul>
 
-          <!-- CLOSE ICON -->
-          <svg id="menuCloseIcon" xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-      </div>
-    </div>
-
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="lg:hidden hidden pb-4">
-      <div class="rounded-2xl border border-borderSoft bg-white shadow-soft p-4 space-y-3">
-
-        <a href="index.html" class="block font-semibold text-sm hover:text-secondary">Home</a>
-        <a href="about.html" class="block font-semibold text-sm hover:text-secondary">About</a>
-        <a href="specialties.html" class="block font-semibold text-sm hover:text-secondary">Specialties</a>
-        <a href="contact.html" class="block font-semibold text-sm hover:text-secondary">Contact</a>
-
-        <div class="pt-2">
-          <a href="contact.html"
-            class="flex items-center justify-center w-full h-[50px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition">
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:flex items-center justify-center px-5 h-[45px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition duration-300">
             Book Appointment
           </a>
-        </div>
 
+          <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-borderSoft text-primary hover:bg-blue-50 transition">
+            <svg id="menuOpenIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menuCloseIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="lg:hidden hidden pb-4">
+        <div class="rounded-2xl border border-borderSoft bg-white shadow-soft p-4 space-y-3">
+          <a href="index.html" class="block font-semibold text-sm hover:text-secondary">Home</a>
+          <a href="about.html" class="block font-semibold text-sm text-secondary">About</a>
+          <a href="specialties.html" class="block font-semibold text-sm hover:text-secondary">Specialties</a>
+          <a href="contact.html" class="block font-semibold text-sm hover:text-secondary">Contact</a>
+
+          <div class="pt-2">
+            <a href="contact.html" class="flex items-center justify-center w-full h-[50px] bg-blue-600 text-white font-semibold rounded-xl hover:bg-secondary transition">
+              Book Appointment
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </nav>
 
+<!-- HERO (CENTERED + HALF HEIGHT) -->
+<section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_32%),linear-gradient(135deg,#0A4F92_0%,#0F6FCB_52%,#4CB4FF_100%)] text-white py-12 md:py-16 flex items-center">
+
+  <!-- BG EFFECT -->
+  <div class="absolute inset-0 opacity-15">
+    <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-white blur-3xl"></div>
+    <div class="absolute bottom-8 right-10 w-56 h-56 rounded-full bg-cyan-200 blur-3xl"></div>
   </div>
-</nav>
 
-  <!-- ABOUT HERO -->
-<section class="bg-gradient-to-br from-primary to-secondary text-white py-20">
-  <div class="max-w-4xl mx-auto px-4 text-center">
+  <!-- CONTENT -->
+  <div class="relative max-w-4xl mx-auto px-4 text-center reveal">
 
-    <div class="reveal">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-        About
-      </h1>
+    <!-- TAG -->
+    <span class="inline-flex items-center rounded-full bg-white/15 border border-white/20 px-4 py-2 text-sm font-semibold mb-4">
+      About Fadnis Urology Clinic
+    </span>
 
-      <p class="text-white/90 text-lg leading-7 mb-8">
-        Delivering advanced urology, andrology, and laparoscopic care with precision, compassion, and modern technology in Raichur.
-      </p>
+    <!-- TITLE -->
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
+      Expertise You Can Trust.<br>
+      Care You Can Feel.
+    </h1>
 
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT INTRO -->
-<section class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-4 text-center reveal">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">
-      Advanced Care. Trusted Expertise.
-    </h2>
-    <p class="text-muted max-w-3xl mx-auto leading-7">
-      At Fadnis Urology Clinic, we specialize in providing comprehensive urological care using the latest medical advancements. Our focus is on accurate diagnosis, minimally invasive treatments, and long-term patient well-being.
+    <!-- DESCRIPTION -->
+    <p class="text-white/90 text-base md:text-lg leading-7 max-w-2xl mx-auto mb-6">
+      Fadnis Urology Clinic delivers advanced urology, andrology, laparoscopic and renal care with precision, compassion, and patient-first treatment.
     </p>
-  </div>
-</section>
 
-<!-- DOCTOR SECTION -->
-<section class="py-20 bg-lightBg">
-  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <!-- ICON FEATURES -->
+    <div class="flex flex-wrap justify-center gap-4">
 
-    <div class="reveal-left">
-      <img src="image/doctor.jpg" alt="Doctor" class="rounded-2xl shadow-card w-full h-[420px] object-cover">
-    </div>
-
-    <div class="reveal-right">
-      <h3 class="text-3xl font-extrabold text-primary mb-4">
-        Meet Dr. Akshay Fadnis
-      </h3>
-      <p class="text-muted leading-7 mb-4">
-        Dr. Akshay Fadnis is a highly skilled urologist with expertise in advanced surgical and non-surgical treatments. With a patient-first approach, he ensures personalized care and precise medical solutions.
-      </p>
-      <p class="text-muted leading-7 mb-6">
-        From kidney stones to complex urological conditions, his goal is to deliver safe, effective, and modern treatment options.
-      </p>
-
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-white p-5 rounded-xl shadow-soft text-center">
-          <h4 class="text-2xl font-bold text-primary">7+</h4>
-          <p class="text-sm text-muted">Years Experience</p>
-        </div>
-        <div class="bg-white p-5 rounded-xl shadow-soft text-center">
-          <h4 class="text-2xl font-bold text-primary">1000+</h4>
-          <p class="text-sm text-muted">Successful Treatments</p>
-        </div>
+      <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-sm font-semibold">Board Certified</span>
       </div>
+
+      <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3" />
+        </svg>
+        <span class="text-sm font-semibold">7+ Years Experience</span>
+      </div>
+
+      <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-3-3v6" />
+        </svg>
+        <span class="text-sm font-semibold">Modern Surgical Care</span>
+      </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section id="why-us" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4">
-
-    <div class="text-center mb-12 reveal">
+  <!-- INTRO -->
+  <section class="py-20 bg-paleSky">
+    <div class="max-w-6xl mx-auto px-4 text-center reveal">
       <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">
-        Why Choose Us
+        A Modern Approach to Urological Care
       </h2>
-      <p class="text-muted max-w-2xl mx-auto">
-        We combine expertise, technology, and compassionate care to ensure the best outcomes for our patients.
+      <p class="text-muted max-w-4xl mx-auto leading-8">
+        At Fadnis Urology Clinic, every patient receives thoughtful evaluation, accurate diagnosis and treatment guidance tailored to the condition. Our approach combines surgical expertise, advanced techniques and a commitment to patient comfort at every step.
+      </p>
+    </div>
+  </section>
+
+  <!-- DOCTOR PROFILE -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
+      <div class="reveal-left">
+        <img src="image/doctor.jpg" alt="Dr. Akshay Fadnis" class="rounded-[30px] shadow-card w-full h-[460px] object-cover">
+      </div>
+
+      <div class="reveal-right">
+        <span class="inline-flex items-center rounded-full bg-blue-50 text-primary font-bold px-4 py-2 mb-4">
+          Meet the Doctor
+        </span>
+        <h3 class="text-3xl md:text-4xl font-extrabold text-primary mb-5">
+          Dr. Akshay Fadnis
+        </h3>
+        <p class="text-muted leading-8 mb-5">
+          Dr. Akshay Fadnis is a board certified urologist, andrologist, laparoscopic surgeon and renal transplant surgeon with specialized training in endo-urology. He is known for combining strong clinical judgment with patient-friendly communication and a focused approach to long-term recovery.
+        </p>
+        <p class="text-muted leading-8 mb-8">
+          With experience in managing both general surgical and urological conditions, he offers treatment through open, endoscopic and laparoscopic techniques based on the specific needs of each patient.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="rounded-2xl border border-borderSoft bg-paleSky p-5">
+            <h4 class="font-extrabold text-primary mb-2">Patient-First Care</h4>
+            <p class="text-sm text-muted leading-6">Detailed consultation, careful evaluation and treatment decisions centered around patient safety and comfort.</p>
+          </div>
+          <div class="rounded-2xl border border-borderSoft bg-paleSky p-5">
+            <h4 class="font-extrabold text-primary mb-2">Advanced Techniques</h4>
+            <p class="text-sm text-muted leading-6">Use of modern open, endoscopic and laparoscopic methods for better precision and recovery planning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIFICATIONS -->
+  <section class="py-20 bg-lightBg">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Education & Qualifications</h2>
+        <p class="text-muted max-w-3xl mx-auto leading-7">
+          A strong academic foundation and specialized training from leading medical institutions shape the quality of care delivered at the clinic.
+        </p>
+      </div>
+
+      <div class="relative timeline-line max-w-4xl mx-auto space-y-8">
+        <div class="relative pl-14 reveal">
+          <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-primary border-4 border-white shadow-soft"></div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-borderSoft">
+            <h3 class="text-xl font-extrabold text-primary mb-2">MBBS</h3>
+            <p class="text-muted">Completed from Mysore Medical College.</p>
+          </div>
+        </div>
+
+        <div class="relative pl-14 reveal">
+          <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-secondary border-4 border-white shadow-soft"></div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-borderSoft">
+            <h3 class="text-xl font-extrabold text-primary mb-2">MS – General Surgery</h3>
+            <p class="text-muted">Completed from Dr. RML Hospital, Delhi.</p>
+          </div>
+        </div>
+
+        <div class="relative pl-14 reveal">
+          <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-accent border-4 border-white shadow-soft"></div>
+          <div class="bg-white rounded-2xl p-6 shadow-soft border border-borderSoft">
+            <h3 class="text-xl font-extrabold text-primary mb-2">MCh – Urology</h3>
+            <p class="text-muted">Completed from the Institute of Nephro-Urology, Bangalore, with specialized training in advanced urological care and endo-urology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- EXPERTISE -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Areas of Expertise</h2>
+      <p class="text-muted max-w-3xl mx-auto leading-7">
+        Dr. Akshay Fadnis manages a broad range of urological and andrological conditions with a balance of surgical skill and evidence-based treatment planning.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-      <div class="p-6 bg-lightBg rounded-2xl shadow-soft reveal">
-        <h4 class="font-bold text-lg mb-2 text-primary">Advanced Technology</h4>
-        <p class="text-sm text-muted">Modern equipment for accurate diagnosis and minimally invasive procedures.</p>
+      <!-- Card 1 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Kidney Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M6 3c-2 2-3 5-3 8a6 6 0 006 6c2 0 4-1 5-3V6a5 5 0 00-5-3H6z"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Stone Disease Management</h4>
+        <p class="text-sm text-muted leading-6">Evaluation and treatment of simple to complex urinary stone disease using modern endoscopic and surgical techniques.</p>
       </div>
 
-      <div class="p-6 bg-lightBg rounded-2xl shadow-soft reveal">
-        <h4 class="font-bold text-lg mb-2 text-primary">Expert Care</h4>
-        <p class="text-sm text-muted">Experienced specialist delivering precise and effective treatments.</p>
+      <!-- Card 2 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Shield Check -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M12 3l7 4v5c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4z"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Prostate & LUTS Care</h4>
+        <p class="text-sm text-muted leading-6">Management of enlarged prostate and lower urinary tract symptoms with individualized treatment options.</p>
       </div>
 
-      <div class="p-6 bg-lightBg rounded-2xl shadow-soft reveal">
-        <h4 class="font-bold text-lg mb-2 text-primary">Patient-Centric</h4>
-        <p class="text-sm text-muted">Focused on comfort, safety, and personalized treatment plans.</p>
+      <!-- Card 3 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Baby Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M6 20c0-3 3-5 6-5s6 2 6 5"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Pediatric Urology</h4>
+        <p class="text-sm text-muted leading-6">Focused care for pediatric urological concerns with special attention to comfort, clarity and family support.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Activity Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 12h4l3-6 4 12 3-6h4"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Urinary Incontinence & Bladder Dysfunction</h4>
+        <p class="text-sm text-muted leading-6">Comprehensive evaluation and treatment for bladder-related issues affecting daily comfort and quality of life.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Heart Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Male Infertility & Sexual Health</h4>
+        <p class="text-sm text-muted leading-6">Care for male infertility, sexual dysfunction, hydrocele and varicocele with privacy and personalized guidance.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="rounded-2xl bg-paleSky border border-borderSoft p-6 shadow-soft reveal">
+        <div class="mb-3 text-primary">
+          <!-- Surgical Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M4 20l4-4m0 0l4 4m-4-4V4"/>
+          </svg>
+        </div>
+        <h4 class="font-extrabold text-lg text-primary mb-2">Advanced Surgical Urology</h4>
+        <p class="text-sm text-muted leading-6">Treatment support for fistula care, renal transplant surgery and testicular cancers using structured surgical planning.</p>
       </div>
 
     </div>
-
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-20 bg-gradient-to-r from-primary to-secondary text-white text-center">
-  <div class="max-w-4xl mx-auto px-4 reveal">
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-      Your Health Comes First
-    </h2>
-    <p class="text-white/90 mb-6">
-      Get expert consultation and advanced treatment for all urological conditions.
-    </p>
-    <a href="contact.html" class="arrow-btn">
-      Book Your Consultation
-    </a>
-  </div>
-</section>
+  <!-- TREATMENT APPROACH -->
+  <section class="py-20 bg-gradient-to-b from-[#edf7ff] to-[#ffffff]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">How We Care</h2>
+        <p class="text-muted max-w-3xl mx-auto leading-7">
+          Our treatment philosophy is built around diagnosis, precision and trust, ensuring every patient feels informed and supported.
+        </p>
+      </div>
 
- 
-    <!-- FOOTER -->
-    <footer class="bg-gradient-to-br from-primary to-secondary text-white pt-16 pb-6">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
-
-            <div class="reveal">
-                <img src="image/logo1.png" alt="Clinic Logo" class="w-16 mb-4">
-                <h3 class="font-extrabold text-lg mb-2">Fadnis Urology Clinic</h3>
-                <p class="text-sm text-white/90 leading-6">
-                    Advanced urology, andrology and laparoscopic care in Raichur with a focus on precision, safety and
-                    patient comfort.
-                </p>
-            </div>
-
-            <div class="reveal">
-                <h4 class="font-extrabold mb-4 text-lg">Quick Links</h4>
-                <ul class="space-y-2 text-sm text-white/90">
-                    <li><a href="#home" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-                    <li><a href="#specialties" class="hover:text-white transition">Specialties</a></li>
-                    <li><a href="#consultation" class="hover:text-white transition">Consultation</a></li>
-                </ul>
-            </div>
-
-            <div class="reveal">
-                <h4 class="font-extrabold mb-4 text-lg">Core Services</h4>
-                <ul class="space-y-2 text-sm text-white/90">
-                    <li>Kidney Stone Care</li>
-                    <li>Prostate & Bladder Care</li>
-                    <li>Female & Pediatric Urology</li>
-                    <li>Laparoscopic Surgery</li>
-                    <li>Infertility Care</li>
-                    <li>Uro-Oncology</li>
-                </ul>
-            </div>
-
-              <div>
-          <h4 class="font-bold text-lg mb-4">Contact</h4>
-
-          <ul class="space-y-3 text-sm text-blue-100">
-
-            <!-- LOCATION -->
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243A8 8 0 1117.657 16.657z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              Raichur, Karnataka
-            </li>
-
-            <!-- PHONE -->
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.065a2 2 0 01-.45 1.882l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.882-.45l2.065.516A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <a href="tel:+919353057005" class="hover:text-white">+91 93530 57005</a>
-            </li>
-
-            <!-- EMAIL -->
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0l-8-4m8 4l-8 4" />
-              </svg>
-              <a href="mailto:info@example.com" class="hover:text-white">info@example.com</a>
-            </li>
-
-            <!-- TIME -->
-            <li class="flex items-center gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Mon - Sat | 9:00 AM - 7:00 PM
-            </li>
-
-          </ul>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="glass-card rounded-2xl p-6 reveal-scale">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">01</div>
+          <h4 class="font-extrabold text-primary text-lg mb-2">Detailed Evaluation</h4>
+          <p class="text-sm text-muted leading-6">Care begins with understanding symptoms, medical history and the exact condition through proper assessment.</p>
         </div>
+        <div class="glass-card rounded-2xl p-6 reveal-scale">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">02</div>
+          <h4 class="font-extrabold text-primary text-lg mb-2">Clear Diagnosis</h4>
+          <p class="text-sm text-muted leading-6">Patients receive an understandable explanation of the issue, treatment choices and expected next steps.</p>
         </div>
+        <div class="glass-card rounded-2xl p-6 reveal-scale">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">03</div>
+          <h4 class="font-extrabold text-primary text-lg mb-2">Right Technique</h4>
+          <p class="text-sm text-muted leading-6">Open, endoscopic or laparoscopic methods are selected based on clinical need, recovery and outcomes.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 reveal-scale">
+          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">04</div>
+          <h4 class="font-extrabold text-primary text-lg mb-2">Follow-Up Support</h4>
+          <p class="text-sm text-muted leading-6">Post-treatment guidance is designed to help patients recover confidently and maintain long-term health.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="border-t border-white/20 mt-10 pt-6 text-center text-sm text-white/80">
-            © 2026 Fadnis Urology Clinic. All rights reserved.
+  <!-- WHY CHOOSE US -->
+  <section id="why-us" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Why Choose Us</h2>
+        <p class="text-muted max-w-2xl mx-auto">
+          We combine expertise, technology and compassionate care to support better outcomes and better patient experience.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
+          <h4 class="font-bold text-lg mb-2 text-primary">Specialized Expertise</h4>
+          <p class="text-sm text-muted leading-6">Comprehensive care in urology, andrology, laparoscopic urology and renal transplant-related treatment support.</p>
         </div>
-    </footer>
+        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
+          <h4 class="font-bold text-lg mb-2 text-primary">Minimally Invasive Focus</h4>
+          <p class="text-sm text-muted leading-6">Preference for modern endoscopic and laparoscopic techniques wherever clinically suitable for precision and recovery.</p>
+        </div>
+        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
+          <h4 class="font-bold text-lg mb-2 text-primary">Trusted Patient Care</h4>
+          <p class="text-sm text-muted leading-6">Warm communication, ethical treatment planning and long-term guidance tailored to each patient’s needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA - UNCHANGED STYLE -->
+  <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white text-center">
+    <div class="max-w-4xl mx-auto px-4 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+        Your Health Comes First
+      </h2>
+      <p class="text-white/90 mb-6">
+        Get expert consultation and advanced treatment for all urological conditions.
+      </p>
+      <a href="contact.html"
+  class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-primary font-semibold rounded-xl hover:scale-105 hover:shadow-lg transition duration-300">
+  Book Your Consultation
+</a>
+    </div>
+  </section>
+
+  <!-- FOOTER - SAME -->
+  <footer class="bg-gradient-to-br from-primary to-secondary text-white pt-16 pb-6">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-10">
+      <div class="reveal">
+        <img src="image/logo1.png" alt="Clinic Logo" class="w-16 mb-4">
+        <h3 class="font-extrabold text-lg mb-2">Fadnis Urology Clinic</h3>
+        <p class="text-sm text-white/90 leading-6">
+          Advanced urology, andrology and laparoscopic care in Raichur with a focus on precision, safety and
+          patient comfort.
+        </p>
+      </div>
+
+      <div class="reveal">
+        <h4 class="font-extrabold mb-4 text-lg">Quick Links</h4>
+        <ul class="space-y-2 text-sm text-white/90">
+          <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="specialties.html" class="hover:text-white transition">Specialties</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact/li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <h4 class="font-extrabold mb-4 text-lg">Core Services</h4>
+        <ul class="space-y-2 text-sm text-white/90">
+          <li>Kidney Stone Care</li>
+          <li>Prostate & Bladder Care</li>
+          <li>Female & Pediatric Urology</li>
+          <li>Laparoscopic Surgery</li>
+          <li>Infertility Care</li>
+          <li>Uro-Oncology</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-lg mb-4">Contact</h4>
+        <ul class="space-y-3 text-sm text-blue-100">
+          <li class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243A8 8 0 1117.657 16.657z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Raichur, Karnataka
+          </li>
+
+          <li class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.516 2.065a2 2 0 01-.45 1.882l-1.27 1.27a16.001 16.001 0 006.586 6.586l1.27-1.27a2 2 0 011.882-.45l2.065.516A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <a href="tel:+919353057005" class="hover:text-white">+91 93530 57005</a>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0l-8-4m8 4l-8 4" />
+            </svg>
+            <a href="mailto:info@example.com" class="hover:text-white">info@example.com</a>
+          </li>
+
+          <li class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Mon - Sat | 9:00 AM - 7:00 PM
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/20 mt-10 pt-6 text-center text-sm text-white/80">
+      © 2026 Fadnis Urology Clinic. All rights reserved.
+    </div>
+  </footer>
 
   <script>
     const menuBtn = document.getElementById("menuBtn");
