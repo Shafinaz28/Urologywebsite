@@ -179,6 +179,34 @@
         left: 13px;
       }
     }
+
+  
+  .reveal-left, .reveal-right {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
+  }
+
+  .reveal-left.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .reveal-right.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
   </style>
 </head>
 
@@ -244,6 +272,19 @@
       </div>
     </div>
   </nav>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917892910925?text=Hi%20I%20am%20interested%20in%20your%20services" 
+   target="_blank"
+   class="fixed bottom-5 right-5 z-50 w-14 h-14 flex items-center justify-center rounded-full bg-green-500 hover:bg-green-600 text-white text-2xl shadow-lg transition transform hover:scale-110">
+
+   <!-- WhatsApp Icon SVG -->
+   <svg xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="currentColor" 
+        class="w-7 h-7">
+     <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.2-1.63A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22a9.9 9.9 0 01-5.05-1.38l-.36-.21-3.68.97.98-3.59-.24-.37A9.93 9.93 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.27-7.73c-.29-.14-1.7-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.29-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.35-1.44-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.45.12-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.54-.88-2.12-.23-.56-.47-.49-.64-.5h-.55c-.19 0-.5.07-.76.36s-1 1-1 2.44 1.02 2.84 1.16 3.03c.14.19 2 3.05 4.85 4.27.68.29 1.2.46 1.61.59.68.21 1.3.18 1.79.11.55-.08 1.7-.7 1.94-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.33z"/>
+   </svg>
+</a>
 
 <!-- HERO (CENTERED + HALF HEIGHT) -->
 <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),_transparent_32%),linear-gradient(135deg,#0A4F92_0%,#0F6FCB_52%,#4CB4FF_100%)] text-white py-12 md:py-16 flex items-center">
@@ -303,7 +344,7 @@
 </section>
 
   <!-- INTRO -->
-  <section class="py-20 bg-paleSky">
+  <!-- <section class="py-20 bg-paleSky">
     <div class="max-w-6xl mx-auto px-4 text-center reveal">
       <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">
         A Modern Approach to Urological Care
@@ -312,42 +353,68 @@
         At Fadnis Urology Clinic, every patient receives thoughtful evaluation, accurate diagnosis and treatment guidance tailored to the condition. Our approach combines surgical expertise, advanced techniques and a commitment to patient comfort at every step.
       </p>
     </div>
-  </section>
+  </section> -->
 
-  <!-- DOCTOR PROFILE -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
-      <div class="reveal-left">
-        <img src="image/doctor.jpg" alt="Dr. Akshay Fadnis" class="rounded-[30px] shadow-card w-full h-[460px] object-cover">
-      </div>
+<!-- DOCTOR PROFILE -->
+<section class="py-20 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
 
-      <div class="reveal-right">
-        <span class="inline-flex items-center rounded-full bg-blue-50 text-primary font-bold px-4 py-2 mb-4">
-          Meet the Doctor
-        </span>
-        <h3 class="text-3xl md:text-4xl font-extrabold text-primary mb-5">
-          Dr. Akshay Fadnis
-        </h3>
-        <p class="text-muted leading-8 mb-5">
-          Dr. Akshay Fadnis is a board certified urologist, andrologist, laparoscopic surgeon and renal transplant surgeon with specialized training in endo-urology. He is known for combining strong clinical judgment with patient-friendly communication and a focused approach to long-term recovery.
-        </p>
-        <p class="text-muted leading-8 mb-8">
-          With experience in managing both general surgical and urological conditions, he offers treatment through open, endoscopic and laparoscopic techniques based on the specific needs of each patient.
-        </p>
+    <!-- IMAGE -->
+    <div class="reveal-left flex justify-center items-center">
+      <div class="relative rounded-[30px] shadow-card bg-white p-4 group">
 
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="rounded-2xl border border-borderSoft bg-paleSky p-5">
-            <h4 class="font-extrabold text-primary mb-2">Patient-First Care</h4>
-            <p class="text-sm text-muted leading-6">Detailed consultation, careful evaluation and treatment decisions centered around patient safety and comfort.</p>
-          </div>
-          <div class="rounded-2xl border border-borderSoft bg-paleSky p-5">
-            <h4 class="font-extrabold text-primary mb-2">Advanced Techniques</h4>
-            <p class="text-sm text-muted leading-6">Use of modern open, endoscopic and laparoscopic methods for better precision and recovery planning.</p>
-          </div>
+        <!-- IMAGE -->
+        <img src="image/img2.jpg" alt="Dr. Akshay Fadnis" 
+        class="w-full max-h-[480px] object-contain transition duration-700 group-hover:scale-105">
+
+        <!-- FLOATING BADGE -->
+        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur rounded-xl px-4 py-2 shadow-soft">
+          <p class="text-sm font-bold text-primary">7+ Years Experience</p>
         </div>
+
       </div>
     </div>
-  </section>
+
+    <!-- CONTENT -->
+    <div class="reveal-right">
+      <span class="inline-flex items-center rounded-full bg-blue-50 text-primary font-bold px-4 py-2 mb-4">
+        Meet the Doctor
+      </span>
+
+      <h3 class="text-3xl md:text-4xl font-extrabold text-primary mb-5">
+        Dr. Akshay Fadnis
+      </h3>
+
+      <p class="text-muted leading-8 mb-5">
+        Dr. Akshay Fadnis is a board certified urologist, andrologist, laparoscopic surgeon and renal transplant surgeon with specialized training in endo-urology. He is known for combining strong clinical judgment with patient-friendly communication and a focused approach to long-term recovery.
+      </p>
+
+      <p class="text-muted leading-8 mb-8">
+        With experience in managing both general surgical and urological conditions, he offers treatment through open, endoscopic and laparoscopic techniques based on the specific needs of each patient.
+      </p>
+
+      <!-- FEATURES -->
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="rounded-2xl border border-borderSoft bg-paleSky p-5 hover:shadow-lg transition duration-300 reveal-up">
+          <h4 class="font-extrabold text-primary mb-2">Patient-First Care</h4>
+          <p class="text-sm text-muted leading-6">
+            Detailed consultation, careful evaluation and treatment decisions centered around patient safety and comfort.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-borderSoft bg-paleSky p-5 hover:shadow-lg transition duration-300 reveal-up">
+          <h4 class="font-extrabold text-primary mb-2">Advanced Techniques</h4>
+          <p class="text-sm text-muted leading-6">
+            Use of modern open, endoscopic and laparoscopic methods for better precision and recovery planning.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <!-- QUALIFICATIONS -->
   <section class="py-20 bg-lightBg">
@@ -387,6 +454,8 @@
     </div>
   </section>
 
+
+  
 <!-- EXPERTISE -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4">
@@ -477,66 +546,151 @@
 </section>
 
   <!-- TREATMENT APPROACH -->
-  <section class="py-20 bg-gradient-to-b from-[#edf7ff] to-[#ffffff]">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">How We Care</h2>
-        <p class="text-muted max-w-3xl mx-auto leading-7">
-          Our treatment philosophy is built around diagnosis, precision and trust, ensuring every patient feels informed and supported.
+<section class="py-20 bg-gradient-to-b from-[#edf7ff] to-[#ffffff]">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">
+        How We Care
+      </h2>
+      <p class="text-muted max-w-3xl mx-auto leading-7">
+        Our treatment philosophy is built around diagnosis, precision and trust, ensuring every patient feels informed and supported.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+      <!-- CARD 1 -->
+      <div class="dark-card rounded-2xl p-6 reveal-scale group">
+        <div class="w-12 h-12 rounded-xl bg-white/10 text-white font-extrabold flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+          01
+        </div>
+        <h4 class="font-extrabold text-white text-lg mb-2">Detailed Evaluation</h4>
+        <p class="text-sm text-white/80 leading-6">
+          Care begins with understanding symptoms, medical history and the exact condition through proper assessment.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="glass-card rounded-2xl p-6 reveal-scale">
-          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">01</div>
-          <h4 class="font-extrabold text-primary text-lg mb-2">Detailed Evaluation</h4>
-          <p class="text-sm text-muted leading-6">Care begins with understanding symptoms, medical history and the exact condition through proper assessment.</p>
+      <!-- CARD 2 -->
+      <div class="dark-card rounded-2xl p-6 reveal-scale group">
+        <div class="w-12 h-12 rounded-xl bg-white/10 text-white font-extrabold flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+          02
         </div>
-        <div class="glass-card rounded-2xl p-6 reveal-scale">
-          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">02</div>
-          <h4 class="font-extrabold text-primary text-lg mb-2">Clear Diagnosis</h4>
-          <p class="text-sm text-muted leading-6">Patients receive an understandable explanation of the issue, treatment choices and expected next steps.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-6 reveal-scale">
-          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">03</div>
-          <h4 class="font-extrabold text-primary text-lg mb-2">Right Technique</h4>
-          <p class="text-sm text-muted leading-6">Open, endoscopic or laparoscopic methods are selected based on clinical need, recovery and outcomes.</p>
-        </div>
-        <div class="glass-card rounded-2xl p-6 reveal-scale">
-          <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary font-extrabold flex items-center justify-center mb-4">04</div>
-          <h4 class="font-extrabold text-primary text-lg mb-2">Follow-Up Support</h4>
-          <p class="text-sm text-muted leading-6">Post-treatment guidance is designed to help patients recover confidently and maintain long-term health.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section id="why-us" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Why Choose Us</h2>
-        <p class="text-muted max-w-2xl mx-auto">
-          We combine expertise, technology and compassionate care to support better outcomes and better patient experience.
+        <h4 class="font-extrabold text-white text-lg mb-2">Clear Diagnosis</h4>
+        <p class="text-sm text-white/80 leading-6">
+          Patients receive an understandable explanation of the issue, treatment choices and expected next steps.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
-          <h4 class="font-bold text-lg mb-2 text-primary">Specialized Expertise</h4>
-          <p class="text-sm text-muted leading-6">Comprehensive care in urology, andrology, laparoscopic urology and renal transplant-related treatment support.</p>
+      <!-- CARD 3 -->
+      <div class="dark-card rounded-2xl p-6 reveal-scale group">
+        <div class="w-12 h-12 rounded-xl bg-white/10 text-white font-extrabold flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+          03
         </div>
-        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
-          <h4 class="font-bold text-lg mb-2 text-primary">Minimally Invasive Focus</h4>
-          <p class="text-sm text-muted leading-6">Preference for modern endoscopic and laparoscopic techniques wherever clinically suitable for precision and recovery.</p>
-        </div>
-        <div class="p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal">
-          <h4 class="font-bold text-lg mb-2 text-primary">Trusted Patient Care</h4>
-          <p class="text-sm text-muted leading-6">Warm communication, ethical treatment planning and long-term guidance tailored to each patient’s needs.</p>
-        </div>
+        <h4 class="font-extrabold text-white text-lg mb-2">Right Technique</h4>
+        <p class="text-sm text-white/80 leading-6">
+          Open, endoscopic or laparoscopic methods are selected based on clinical need, recovery and outcomes.
+        </p>
       </div>
+
+      <!-- CARD 4 -->
+      <div class="dark-card rounded-2xl p-6 reveal-scale group">
+        <div class="w-12 h-12 rounded-xl bg-white/10 text-white font-extrabold flex items-center justify-center mb-4 group-hover:bg-white/20 transition">
+          04
+        </div>
+        <h4 class="font-extrabold text-white text-lg mb-2">Follow-Up Support</h4>
+        <p class="text-sm text-white/80 leading-6">
+          Post-treatment guidance is designed to help patients recover confidently and maintain long-term health.
+        </p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  .dark-card {
+    background: linear-gradient(135deg, #0A4F92 0%, #0F6FCB 60%, #4CB4FF 100%);
+    color: white;
+    box-shadow: 0 15px 40px rgba(10, 79, 146, 0.25);
+    transition: all 0.4s ease;
+  }
+
+  .dark-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(10, 79, 146, 0.35);
+  }
+</style>
+
+<!-- WHY CHOOSE US -->
+<section id="why-us" class="py-20 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">
+        Why Choose Us
+      </h2>
+      <p class="text-muted max-w-2xl mx-auto">
+        We combine expertise, technology and compassionate care to support better outcomes and better patient experience.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 ">
+
+      <!-- CARD 1 -->
+      <div class="group p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal hover:-translate-y-2 transition duration-300">
+        
+        <!-- ICON -->
+        <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-100 text-primary mb-4 group-hover:scale-110 transition">
+          <!-- Shield Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M12 3l7 4v5c0 5-3 9-7 10-4-1-7-5-7-10V7l7-4z"/>
+          </svg>
+        </div>
+
+        <h4 class="font-bold text-lg mb-2 text-primary">Specialized Expertise</h4>
+        <p class="text-sm text-muted leading-6">
+          Comprehensive care in urology, andrology, laparoscopic urology and renal transplant-related treatment support.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="group p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal hover:-translate-y-2 transition duration-300">
+        
+        <!-- ICON -->
+        <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-100 text-primary mb-4 group-hover:scale-110 transition">
+          <!-- Activity / Pulse Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 12h4l3-6 4 12 3-6h4"/>
+          </svg>
+        </div>
+
+        <h4 class="font-bold text-lg mb-2 text-primary">Minimally Invasive Focus</h4>
+        <p class="text-sm text-muted leading-6">
+          Preference for modern endoscopic and laparoscopic techniques wherever clinically suitable for precision and recovery.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="group p-7 bg-paleSky rounded-2xl shadow-soft border border-borderSoft reveal hover:-translate-y-2 transition duration-300">
+        
+        <!-- ICON -->
+        <div class="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-100 text-primary mb-4 group-hover:scale-110 transition">
+          <!-- Heart Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/>
+          </svg>
+        </div>
+
+        <h4 class="font-bold text-lg mb-2 text-primary">Trusted Patient Care</h4>
+        <p class="text-sm text-muted leading-6">
+          Warm communication, ethical treatment planning and long-term guidance tailored to each patient’s needs.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- CTA - UNCHANGED STYLE -->
   <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white text-center">
@@ -659,6 +813,24 @@
     document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale").forEach((el) => {
       observer.observe(el);
     });
+
+    
+  const elements = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
+
+  const revealOnScroll = () => {
+    elements.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
   </script>
 </body>
 </html>
