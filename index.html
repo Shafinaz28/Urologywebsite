@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -1102,125 +1102,100 @@
     </div>
   </section>
 
-  <!-- BLOG -->
-  <!-- <section class="py-24 bg-[#f5f9ff]">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <p class="text-[12px] font-bold uppercase tracking-[2px] text-accent mb-4">Health Articles</p>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-deepNavy mb-5">
-          Explore useful insights and patient education
-        </h2>
-        <p class="text-slate-600 text-base md:text-lg leading-8">
-          Informative content can help patients better understand symptoms, treatment choices and timely consultation.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="rounded-[24px] overflow-hidden bg-white border border-borderSoft shadow-sm">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-deepNavy mb-3">When should you consult a urologist?</h3>
-            <p class="text-sm text-muted leading-6 mb-4">Early consultation can help reduce complications and bring clarity to persistent symptoms.</p>
-            <a href="#" class="text-primary font-bold text-sm hover:text-secondary">Read More →</a>
-          </div>
-        </div>
-
-        <div class="rounded-[24px] overflow-hidden bg-white border border-borderSoft shadow-sm">
-          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-deepNavy mb-3">Understanding kidney stone symptoms</h3>
-            <p class="text-sm text-muted leading-6 mb-4">Recognizing early signs can support faster evaluation and better treatment planning.</p>
-            <a href="#" class="text-primary font-bold text-sm hover:text-secondary">Read More →</a>
-          </div>
-        </div>
-
-        <div class="rounded-[24px] overflow-hidden bg-white border border-borderSoft shadow-sm">
-          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-deepNavy mb-3">Prostate health: when to seek guidance</h3>
-            <p class="text-sm text-muted leading-6 mb-4">Many prostate-related symptoms can be managed better with timely specialist consultation.</p>
-            <a href="#" class="text-primary font-bold text-sm hover:text-secondary">Read More →</a>
-          </div>
-        </div>
-      </div>
+  
+<!-- LOCATION + CONTACT -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <p class="text-[12px] font-bold uppercase tracking-[2px] text-accent mb-4">Contact & Appointment</p>
+      <p class="text-slate-600 text-base md:text-lg leading-8">
+        Reach out for appointments, consultation support and clinic visit details.
+      </p>
     </div>
-  </section> -->
 
-  <!-- LOCATION + CONTACT -->
-  <section id="contact" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <p class="text-[12px] font-bold uppercase tracking-[2px] text-accent mb-4">Contact & Appointment</p>
-        <!-- <h2 class="text-3xl md:text-5xl font-extrabold text-deepNavy mb-5">
-          Book your consultation with ease
-        </h2> -->
-        <p class="text-slate-600 text-base md:text-lg leading-8">
-          Reach out for appointments, consultation support and clinic visit details.
-        </p>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <!-- MAP -->
+      <div class="rounded-[28px] overflow-hidden border border-borderSoft shadow-sm bg-softBlue">
+        <iframe
+          src="https://www.google.com/maps?q=Raichur&output=embed"
+          class="w-full h-[520px]"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 items-start">
-        <div class="rounded-[28px] overflow-hidden border border-borderSoft shadow-sm bg-softBlue">
-          <iframe src="https://www.google.com/maps?q=Raichur&output=embed" class="w-full h-[520px]" style="border:0;"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      <!-- FORM -->
+      <div class="rounded-[28px] bg-[#f8fbff] border border-borderSoft shadow-sm p-8 md:p-10">
+        <h3 class="text-2xl md:text-3xl font-extrabold text-deepNavy mb-6">Send an appointment request</h3>
 
-        <div class="rounded-[28px] bg-[#f8fbff] border border-borderSoft shadow-sm p-8 md:p-10">
-          <h3 class="text-2xl md:text-3xl font-extrabold text-deepNavy mb-6">Send an appointment request</h3>
-
-          <form class="space-y-5">
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-sm font-semibold text-deepNavy mb-2">Full Name</label>
-                <input type="text" placeholder="Enter your name"
-                  class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-deepNavy mb-2">Phone Number</label>
-                <input type="tel" placeholder="Enter your phone number"
-                  class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
-              </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-sm font-semibold text-deepNavy mb-2">Email</label>
-                <input type="email" placeholder="Enter your email"
-                  class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-deepNavy mb-2">Preferred Date</label>
-                <input type="date"
-                  class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
-              </div>
+        <form id="leadForm" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold text-deepNavy mb-2">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+                class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
             </div>
 
             <div>
-              <label class="block text-sm font-semibold text-deepNavy mb-2">Concern / Message</label>
-              <textarea rows="5" placeholder="Tell us briefly about your concern"
-                class="w-full px-4 py-3 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary"></textarea>
+              <label class="block text-sm font-semibold text-deepNavy mb-2">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+                class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-semibold text-deepNavy mb-2">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
             </div>
 
-            <button type="submit"
-              class="w-full sm:w-auto px-8 h-[54px] bg-primary text-white font-bold rounded-xl hover:bg-secondary transition">
-              Submit Appointment Request
-            </button>
-          </form>
+            <div>
+              <label class="block text-sm font-semibold text-deepNavy mb-2">Preferred Date</label>
+              <input
+                type="date"
+                name="date"
+                class="w-full h-12 px-4 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary">
+            </div>
+          </div>
 
-          <!-- <div class="grid sm:grid-cols-2 gap-5 mt-8">
-            <div class="rounded-2xl bg-white border border-borderSoft p-5">
-              <h4 class="font-bold text-deepNavy mb-2">Call Us</h4>
-              <a href="tel:+919353057005" class="text-primary font-semibold hover:text-secondary">+91 93530 57005</a>
-            </div>
-            <div class="rounded-2xl bg-white border border-borderSoft p-5">
-              <h4 class="font-bold text-deepNavy mb-2">Clinic Hours</h4>
-              <p class="text-sm text-muted">Mon - Sat | 9:00 AM - 7:00 PM</p>
-            </div>
-          </div> -->
-        </div>
+          <div>
+            <label class="block text-sm font-semibold text-deepNavy mb-2">Concern / Message</label>
+            <textarea
+              rows="5"
+              name="message"
+              placeholder="Tell us briefly about your concern"
+              class="w-full px-4 py-3 rounded-xl border border-borderSoft bg-white outline-none focus:border-secondary"></textarea>
+          </div>
+
+          <input type="hidden" name="source" id="sourceField" value="Clinic Website Contact Form">
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full sm:w-auto px-8 h-[54px] bg-primary text-white font-bold rounded-xl hover:bg-secondary transition flex items-center justify-center gap-2">
+            <span id="btnSpinner" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            <span id="btnIcon">➜</span>
+            <span id="btnText">Submit Appointment Request</span>
+          </button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer class="bg-gradient-to-br from-primary to-secondary text-white pt-16 pb-6">
@@ -1379,6 +1354,114 @@
       });
     }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5zfdah0C9yTHga8hON5jumFqNr1ENOyPHww42nlZC_yl2PuAKW47xm5NinVPIrPBy/exec";
+
+  const form = document.getElementById("leadForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = document.getElementById("btnText");
+  const btnIcon = document.getElementById("btnIcon");
+  const btnSpinner = document.getElementById("btnSpinner");
+  const sourceField = document.getElementById("sourceField");
+
+  function setLoading(on) {
+    if (!submitBtn) return;
+    submitBtn.disabled = on;
+    if (btnText) btnText.textContent = on ? "Submitting..." : "Submit Appointment Request";
+    if (btnIcon) btnIcon.classList.toggle("hidden", on);
+    if (btnSpinner) btnSpinner.classList.toggle("hidden", !on);
+  }
+
+  function fireSuccess() {
+    if (window.Swal) {
+      Swal.fire({
+        icon: "success",
+        title: "Appointment Request Sent!",
+        text: "We’ll get back to you shortly.",
+        confirmButtonColor: "#B8860B"
+      });
+    } else {
+      alert("Appointment Request Sent!");
+    }
+  }
+
+  function fireError(msg) {
+    if (window.Swal) {
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: msg || "Something went wrong. Please try again.",
+        confirmButtonColor: "#B8860B"
+      });
+    } else {
+      alert(msg || "Something went wrong. Please try again.");
+    }
+  }
+
+  if (!form) return;
+
+  if (sourceField) {
+    sourceField.value = "Clinic Website Contact Form";
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    setLoading(true);
+
+    if (window.Swal) {
+      Swal.fire({
+        title: "Submitting...",
+        text: "Please wait",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => Swal.showLoading()
+      });
+    }
+
+    try {
+      const payload = {
+        name: (form.querySelector('[name="name"]')?.value || "").trim(),
+        phone: (form.querySelector('[name="phone"]')?.value || "").trim(),
+        email: (form.querySelector('[name="email"]')?.value || "").trim(),
+        date: (form.querySelector('[name="date"]')?.value || "").trim(),
+        message: (form.querySelector('[name="message"]')?.value || "").trim(),
+        source: (form.querySelector('[name="source"]')?.value || "").trim()
+      };
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        mode: "no-cors"
+      });
+
+      if (window.Swal && Swal.isVisible()) Swal.close();
+
+      form.reset();
+
+      if (sourceField) {
+        sourceField.value = "Clinic Website Contact Form";
+      }
+
+      setLoading(false);
+      fireSuccess();
+
+    } catch (error) {
+      console.error("Submission error:", error);
+      if (window.Swal && Swal.isVisible()) Swal.close();
+      setLoading(false);
+      fireError("Could not submit. Please check your internet and try again.");
+    }
+  });
+});
   </script>
 
 </body>
